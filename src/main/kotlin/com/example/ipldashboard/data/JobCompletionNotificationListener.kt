@@ -29,13 +29,16 @@ class JobCompletionNotificationListener @Autowired constructor(private val entit
                 .associateBy({ it[0] as String }, { it[1] as Long })
 
             teamNameToMatchCount
-                .map {
-                    val teamName = it.key
-                    Team(teamName = teamName, totalMatches = it.value, totalWins = teamNameToWinsCount[teamName] ?: 0)
-                }
                 .forEach {
-                    println(it)
-                    entityManager.persist(it)
+                    val teamName = it.key
+                    val totalMatches = it.value
+                    val team = Team(
+                        teamName = teamName,
+                        totalMatches = totalMatches,
+                        totalWins = teamNameToWinsCount[teamName] ?: 0
+                    )
+                    println(team)
+                    entityManager.persist(team)
                 }
 
 
