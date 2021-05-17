@@ -1,0 +1,3 @@
+GET http://localhost:8080/team/Gujarat%20Lions
+Origin: localhost:3000
+
