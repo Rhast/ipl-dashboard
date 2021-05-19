@@ -8,7 +8,7 @@ function App() {
     <div className="App">
         <Router>
             <Switch>
-                <Route path="/teams/:teamName/matchs/:year">
+                <Route path="/teams/:teamName/matches/:year">
                     <MatchPage/>
                 </Route>
                 <Route path="/teams/:teamName">
